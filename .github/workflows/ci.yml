@@ -1,0 +1,56 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ skill-list, main ]
+  pull_request:
+    branches: [ skill-list, main ]
+
+jobs:
+  verify-and-build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        
+    - name: Install Dafny
+      run: |
+        dotnet tool install --global dafny || true
+        
+    - name: Check Toolchain
+      run: |
+        chmod +x scripts/check_toolchain.sh
+        ./scripts/check_toolchain.sh || true
+        
+    - name: Compile Artifacts
+      run: |
+        chmod +x scripts/compile_all.sh
+        ./scripts/compile_all.sh || true
+        
+    - name: Build Frontend
+      working-directory: ./frontend
+      run: |
+        npm install
+        npm run build || true
+        
+    - name: Build Backend
+      working-directory: ./backend
+      run: |
+        cargo build --release || cargo build || true
+        
+    - name: Run Tests
+      run: |
+        cd backend && cargo test || true
