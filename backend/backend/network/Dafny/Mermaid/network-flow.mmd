@@ -1,0 +1,7 @@
+graph LR
+    A[Request] -->|Validate| B{Valid Path?}
+    B -->|Yes| C[Route Handler]
+    B -->|No| D[400 Error]
+    C -->|Process| E{Success?}
+    E -->|Yes| F[200 Response]
+    E -->|No| G[500 Error]

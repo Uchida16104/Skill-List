@@ -1,0 +1,23 @@
+/* Generated from F* CSS verification */
+.skill-card {
+  padding: 16px;
+  margin: 8px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.verified-badge {
+  color: #10b981;
+  font-size: 14px;
+  padding: 4px 8px;
+  background-color: #d1fae5;
+  border-radius: 4px;
+}
+
+.skill-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}

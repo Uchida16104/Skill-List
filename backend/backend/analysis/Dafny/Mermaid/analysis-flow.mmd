@@ -1,0 +1,7 @@
+graph TD
+    A[Data Input] -->|Validate| B{Valid?}
+    B -->|Yes| C[Filter by Category]
+    B -->|No| D[Return Error]
+    C -->|Calculate| E[Statistics]
+    E -->|Aggregate| F[Results]
+    F -->|Return| G[JSON Response]

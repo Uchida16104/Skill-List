@@ -1,0 +1,9 @@
+graph TD
+    A[Process Created] -->|Validate| B{Valid?}
+    B -->|Yes| C[Pending Status]
+    B -->|No| D[Failed Status]
+    C -->|Start| E[Running Status]
+    E -->|Complete| F[Completed Status]
+    E -->|Error| D
+    F -->|Cleanup| G[Removed]
+    D -->|Retry| C

@@ -13,8 +13,13 @@ mod handlers;
 mod models;
 
 // Include compiled F* and Dafny artifacts
-include!("../backend/process/FStarLang/Rust/process.rs");
-include!("../backend/network/FStarLang/Rust/network.rs");
+mod process {
+    include!("../backend/process/FStarLang/Rust/process.rs");
+}
+
+mod network {
+    include!("../backend/network/FStarLang/Rust/network.rs");
+}
 
 // Shared application state
 struct AppState {

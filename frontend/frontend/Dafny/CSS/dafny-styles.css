@@ -1,0 +1,27 @@
+/* Generated from Dafny CSS verification */
+:root {
+  --skill-card-padding: 16px;
+  --skill-card-margin: 8px;
+  --skill-card-width: 300px;
+  --verified-color: #10b981;
+  --border-radius: 8px;
+}
+
+.dafny-skill-card {
+  padding: var(--skill-card-padding);
+  margin: var(--skill-card-margin);
+  width: var(--skill-card-width);
+  border: 1px solid #e5e7eb;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.dafny-skill-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.dafny-verified {
+  color: var(--verified-color);
+  font-weight: 600;
+}

@@ -1,0 +1,11 @@
+graph TD
+    A[Storage Request] -->|Check Type| B{Storage Type?}
+    B -->|IndexedDB| C[Browser IndexedDB]
+    B -->|LocalStorage| D[Browser LocalStorage]
+    B -->|PouchDB| E[PouchDB Sync]
+    B -->|SQL.js| F[In-Memory SQLite]
+    C -->|Store/Retrieve| G[Success]
+    D -->|Store/Retrieve| G
+    E -->|Store/Retrieve| G
+    F -->|Store/Retrieve| G
+    G -->|Return| H[Data Response]

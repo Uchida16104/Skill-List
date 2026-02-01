@@ -169,6 +169,13 @@ GitHub Actions workflows automatically:
 
 See `.github/workflows/ci.yml` for details.
 
+### Verified core modules
+
+The `process` and `network` modules are generated from formally verified
+F* specifications. All functions compile to Rust without `unsafe` and
+are type-checked, even if not all of them are currently wired into HTTP handlers.
+
+
 ## License
 
 MIT License - See LICENSE file for details.
