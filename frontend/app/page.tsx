@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import '../frontend/FStarLang/CSS/skilllist.css';
-import '../frontend/Dafny/CSS/dafny-styles.css';
+//import '../frontend/FStarLang/CSS/skilllist.css';
+//import '../frontend/Dafny/CSS/dafny-styles.css';
 
 interface Skill {
   id: number;
